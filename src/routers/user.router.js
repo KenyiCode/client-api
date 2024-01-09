@@ -2,6 +2,7 @@ const express = require("express")
 const router = express.Router()
 const {insertUser, getUserByEmail} = require("../model/user/User.model")
 const {hashPassword, comparePassword} = require("../helpers/bcrypt.helper")
+const {createAccessJwt, createRefreshJwt} = require("../helpers/jwt.helper")
 
 router.all("/", (req, res, next) => {
     //res.json({ message: "Return form user router" })
@@ -54,8 +55,22 @@ router.post("/login", async (req, res) => {
 
     // Compare plaintext password with obtained hashed pw
     const result = await comparePassword(password, passFromDb)
-    console.log(result)
-    res.json({status: "Success", message: "Login successful"})
+
+    if (!result) {
+        return (
+            res.json({status: "error", message: "Invalid email or password"})
+        )
+    }
+
+    const accessJwt = await createAccessJwt(user.email)
+    const refreshJwt = await createRefreshJwt(user.email)
+
+    res.json({
+        status: "success",
+        message: "login successful",
+        accessJwt,
+        refreshJwt
+    })
 
 })
 
