@@ -17,3 +17,7 @@ Content-Type: application/json
     "email": "as@asd.com",
     "password": "bleh"
 }
+
+### Get a user profile endpoint
+GET http://localhost:3001/v1/user
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFzQGFzZC5jb20iLCJpYXQiOjE3MDUzNzQ2NTEsImV4cCI6MTcwNTM3NTU1MX0.h5mqyJop7Fp61JOVHpG6DgPsZZ6ESsmqe5lBSU2PEJg
