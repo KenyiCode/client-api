@@ -26,7 +26,16 @@ const getJWT = async (key) => {
     return id
 }
 
+const deleteJWT = (key) => {
+    try {
+        client.del(key)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 module.exports = {
     setJWT,
-    getJWT
+    getJWT,
+    deleteJWT
 }

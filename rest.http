@@ -20,4 +20,8 @@ Content-Type: application/json
 
 ### Get a user profile endpoint
 GET http://localhost:3001/v1/user
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFzQGFzZC5jb20iLCJpYXQiOjE3MDUzNzQ2NTEsImV4cCI6MTcwNTM3NTU1MX0.h5mqyJop7Fp61JOVHpG6DgPsZZ6ESsmqe5lBSU2PEJg
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFzQGFzZC5jb20iLCJpYXQiOjE3MDU0NTE3ODMsImV4cCI6MTcwNTQ1MjY4M30.-MUaWgxxXoVG_tPEqCk9uVD0t05WEomV_TxkAWr6fAY
+
+### Get fresh JWT 
+GET http://localhost:3001/v1/tokens
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFzQGFzZC5jb20iLCJpYXQiOjE3MDU0NDUxMjgsImV4cCI6MTcwODAzNzEyOH0.51GFfEDAPTVvbP5Q7pwWxShOK9qdBMBzuOuzuahFeSU
