@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const {insertUser, getUserByEmail, getUserById} = require("../model/user/User.model")
+const {setPasswordResetPin} = require("../model/resetPin/ResetPin.model")
 const {hashPassword, comparePassword} = require("../helpers/bcrypt.helper")
 const {createAccessJwt, createRefreshJwt} = require("../helpers/jwt.helper")
 const {userAuthorization} = require("../middleware/authorization.middleware")
@@ -81,6 +82,18 @@ router.post("/login", async (req, res) => {
         refreshJwt
     })
 
+})
+
+//Reset password router
+router.post("/reset-password", async (req, res) => {
+    const {email} = req.body
+    const user = await getUserByEmail(email)
+    if (user && user.id) {
+        const resetPin = await setPasswordResetPin(user.email)
+        return res.json(resetPin)
+    }
+
+    res.json({status: "Error", message: "Forbidden"})
 })
 
 module.exports = router

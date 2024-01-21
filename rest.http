@@ -25,3 +25,12 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFzQGFzZC5jb20i
 ### Get fresh JWT 
 GET http://localhost:3001/v1/tokens
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFzQGFzZC5jb20iLCJpYXQiOjE3MDU0NDUxMjgsImV4cCI6MTcwODAzNzEyOH0.51GFfEDAPTVvbP5Q7pwWxShOK9qdBMBzuOuzuahFeSU
+
+### Reset Paasword
+POST http://localhost:3001/v1/user/reset-password
+Content-Type: application/json
+
+{
+    "email": "as@asd.com",
+    "password": "bleh"
+}
