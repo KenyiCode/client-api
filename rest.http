@@ -20,13 +20,13 @@ Content-Type: application/json
 
 ### Get a user profile endpoint
 GET http://localhost:3001/v1/user
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFzQGFzZC5jb20iLCJpYXQiOjE3MDU0NTE3ODMsImV4cCI6MTcwNTQ1MjY4M30.-MUaWgxxXoVG_tPEqCk9uVD0t05WEomV_TxkAWr6fAY
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFzQGFzZC5jb20iLCJpYXQiOjE3MTI2OTQyMzEsImV4cCI6MTcxMjY5NTEzMX0.7i35pP_vOAUlCFqPz3PipNkDYcPNzpJuKyI24OjJqB4
 
-### Get fresh JWT 
+### Get access JWT 
 GET http://localhost:3001/v1/tokens
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFzQGFzZC5jb20iLCJpYXQiOjE3MDU0NDUxMjgsImV4cCI6MTcwODAzNzEyOH0.51GFfEDAPTVvbP5Q7pwWxShOK9qdBMBzuOuzuahFeSU
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFzQGFzZC5jb20iLCJpYXQiOjE3MTEzODIxMDAsImV4cCI6MTcxMzk3NDEwMH0.7jD38KIwKnTkzMwOxLWFeeq0yjafKE61-BuM7bgDrnI
 
-### Reset Paasword
+### Reset Password
 POST http://localhost:3001/v1/user/reset-password
 Content-Type: application/json
 

@@ -4,6 +4,7 @@ const {insertUser, getUserByEmail, getUserById} = require("../model/user/User.mo
 const {setPasswordResetPin} = require("../model/resetPin/ResetPin.model")
 const {hashPassword, comparePassword} = require("../helpers/bcrypt.helper")
 const {createAccessJwt, createRefreshJwt} = require("../helpers/jwt.helper")
+const {emailProcessor} = require("../helpers/email.helper")
 const {userAuthorization} = require("../middleware/authorization.middleware")
 
 router.all("/", (req, res, next) => {
@@ -90,10 +91,13 @@ router.post("/reset-password", async (req, res) => {
     const user = await getUserByEmail(email)
     if (user && user.id) {
         const resetPin = await setPasswordResetPin(user.email)
-        return res.json(resetPin)
+        const result = await emailProcessor(email, resetPin.pin)
+        if (result && result.messageId){
+            return res.json ({ status: "Success", message: "If email exists, pin will be sent shortly"})
+        }
     }
 
-    res.json({status: "Error", message: "Forbidden"})
+    return res.json({status: "Error", message: "Unable to process, try again later."})
 })
 
 module.exports = router

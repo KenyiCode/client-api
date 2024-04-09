@@ -8,7 +8,6 @@ router.get("/", async (req, res, next) => {
     const {authorization} = req.headers
 
     const decoded = await verifyRefreshJWT(authorization)
-
     if (decoded.email) {
         const userProf = await getUserByEmail(decoded.email)
         if (userProf._id) {
